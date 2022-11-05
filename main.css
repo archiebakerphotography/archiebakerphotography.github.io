@@ -1,0 +1,245 @@
+/* Reset boarder on page */
+body {
+  overscroll-behavior: none;
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  /* Set background color */
+  background-color: #ececec;
+  /* -ms-overflow-style: none;  /* IE and Edge
+  scrollbar-width: none;  Firefox */
+
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+
+.socials {
+  display: flex;
+  margin: auto;
+
+}
+
+.socials p {
+  width: auto;
+}
+
+.flex-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* responsive vertical sidebar class stuff */
+.sidebar {
+  width: 200px; 
+  visibility: visible;
+  margin: 0;
+  padding: 0;
+  background-color: #f1f1f1;
+  color: rgb(58, 58, 58);
+  transition: all 0.25s;
+
+  position: fixed;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.sidebar h1 {
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: 400;
+  color: rgb(58, 58, 58);
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar a.active {
+  background-color: #9fa3a6;
+  color: white;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+
+/* Hamburger menu stuff */
+
+/* Style the navigation menu */
+ .hamburger {
+  overflow: hidden;
+  background-color: rgb(213, 213, 213);
+  position: relative;
+  visibility: hidden;
+  height: 0px;
+  
+  
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.hamburger #myLinks {
+  display: none;
+  
+}
+
+/* Style navigation menu links */
+.hamburger a {
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+/* Style the hamburger menu */
+.hamburger a.icon {
+  background: rgb(156, 156, 156);
+  display: block; 
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* Add a grey background color on mouse-over */
+.hamburger a:hover {
+  background-color: rgb(207, 207, 208);
+  color: black;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  background-color: rgb(207, 207, 207);
+  color: white;
+} 
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: auto;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left; width:auto; flex-shrink: 0;}
+  div.content {margin-left: 0;}
+  .hamburger {visibility: hidden; height: 0px;}
+
+  .sidebar .scroller {
+    height: auto;
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    
+  }
+
+}
+
+/* On screens that are less than 400px, display the bar as a hamburger menu, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar {
+    height: 0;
+    visibility: hidden;
+  }
+
+
+  .hamburger {
+    visibility: visible;
+    height: auto;
+    transition: all 0.s;
+  }
+} 
+
+/* -------------------------- */
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+.content {
+  margin-left: 200px;
+  overflow-y: hidden;
+  overflow-x: auto;
+  height: 100%;
+  position: absolute;
+  
+  display: flex;
+
+}
+
+.content img {
+  width: auto;
+  height: 100%;
+  padding-left: 6px;
+  padding-right: 6px
+  
+}
+
+
+.footer {
+  display: flex;
+}
+
+.footer p {
+  margin-left: 10px;
+  color: rgb(158, 158, 158);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.albumcover {
+  position: relative;
+  width: 100%;
+}
+
+.albumcover:hover .overlay {
+  opacity: 1;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position:absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: calc(100% - 12px);
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #4b4b4bdd;
+  margin-left: 6px;
+
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-decoration: none;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+

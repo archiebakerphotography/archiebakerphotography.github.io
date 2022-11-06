@@ -27,12 +27,16 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run the script to generate the pages
-        run: |
-        chmod +x ./.github/workflows/generatesite.sh
-        ./.github/workflows/generatesite.sh
+        run: chmod +x ./.github/workflows/generatesite.sh
 
       # Runs a set of commands using the runners shell
       - name: Configure local copy of git
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+
+      - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}

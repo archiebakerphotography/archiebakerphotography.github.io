@@ -21,13 +21,13 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v3
-        with:
-          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
-          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
-
+      
       # Runs a single command using the runners shell
-      - name: Run the script to generate the pages
+      - name: add permissions to script
         run: chmod +x ./.github/workflows/generatesite.sh
+
+      - name: run script
+        run: ./.github/workflows/generatesite.sh
 
       # Runs a set of commands using the runners shell
       - name: Configure local copy of git
@@ -35,3 +35,8 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
+      - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}

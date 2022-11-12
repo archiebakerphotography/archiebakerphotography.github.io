@@ -1,4 +1,4 @@
-/* Reset boarder on page */
+ /* Reset boarder on page */
 body {
   overscroll-behavior: none;
   scroll-behavior: smooth;
@@ -164,28 +164,6 @@ body {
   }
 } 
 
-/* -------------------------- */
-
-/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
-.content {
-  margin-left: 200px;
-  overflow-y: hidden;
-  overflow-x: auto;
-  height: 100%;
-  position: absolute;
-  
-  display: flex;
-
-}
-
-.content img {
-  width: auto;
-  height: 100%;
-  padding-left: 6px;
-  padding-right: 6px
-  
-}
-
 
 .footer {
   display: flex;
@@ -196,13 +174,36 @@ body {
   color: rgb(158, 158, 158);
 }
 
+
+/* -------------------------- */
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+.content {
+  margin-left: 200px;
+  height: 100%;
+  position: absolute;
+  overflow-y:hidden;
+  
+  display: flex;
+
+}
+
+.content img {
+  padding-left: 6px;
+  padding-right: 6px
+  
+}
+
+
+
 ::-webkit-scrollbar {
   display: none;
 }
 
 .albumcover {
   position: relative;
-  width: 100%;
+  width: auto;
+  height: 100%;
 }
 
 .albumcover:hover .overlay {
@@ -210,23 +211,26 @@ body {
 }
 
 .image {
-  display: block;
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
 }
 
 .overlay {
-  position:absolute;
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100%;
+  
   width: calc(100% - 12px);
+  height: 100%;
+
+  
   opacity: 0;
   transition: .5s ease;
   background-color: #4b4b4bdd;
   margin-left: 6px;
+  margin-bottom: 0%;
 
 }
 

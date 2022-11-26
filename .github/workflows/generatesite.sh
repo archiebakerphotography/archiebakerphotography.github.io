@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 # Script to generate html pages from the images in the image folder 
 
@@ -78,7 +78,7 @@ for folder in images/*; do
     
     # Create new file for the album page
     newFile="$name.html"
-    echo $newHtml > $newFile
+    echo "$newHtml" > "$newFile"
     
 
 done

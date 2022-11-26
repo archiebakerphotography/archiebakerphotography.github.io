@@ -183,7 +183,7 @@ body {
   height: 100%;
   position: absolute;
   overflow-y:hidden;
-  
+  width: calc(100% - 200px);
   display: flex;
 
 }

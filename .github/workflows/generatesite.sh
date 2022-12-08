@@ -73,8 +73,8 @@ for folder in images/*; do
 
     # If there is a text file in the folder, read its content, and add it to the html
     if [ -f "$folder"/content.txt ]; then
-        text=$(cat "$folder"/content.txt)
-        textElement=$(echo "$textElementTemplate" | sed "s/TEXT/$text/g")
+        contentText=$(cat "$folder"/content.txt)
+        textElement=$(echo "$textElementTemplate" | sed "s/TEXT/$contentText/g")
         content="$content$textElement"
     fi
 

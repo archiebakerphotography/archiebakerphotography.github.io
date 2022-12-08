@@ -72,8 +72,8 @@ for folder in images/*; do
     content=""
 
     # If there is a text file in the folder, read its content, and add it to the html
-    if [ -f "$folder"/*.txt ]; then
-        text=$(cat "$folder"/*.txt)
+    if [ -f "$folder"/content.txt ]; then
+        text=$(cat "$folder"/content.txt)
         textElement=$(echo "$textElementTemplate" | sed "s/TEXT/$text/g")
         content="$content$textElement"
     fi
@@ -92,7 +92,6 @@ for folder in images/*; do
     newFile="$name.html"
     echo "$newHtml" > "$newFile"
     
-
 done
 
 # Save the updated homepage to index.html

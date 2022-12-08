@@ -243,12 +243,9 @@ body {
 .smalltext {
   color: white;
   font-size: 12px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
   text-decoration: none;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  padding-left: 6px;
+  padding-right: 6px;
+
   text-align: center;
 }

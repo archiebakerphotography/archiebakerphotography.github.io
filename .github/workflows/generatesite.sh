@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Script to generate html pages from the images in the image folder 
-
+# and the text files in the image folders
 
 # Delete all the html files in the html folder
 rm -f *.html
@@ -20,6 +20,10 @@ homeElementTemplate="<a href='NAME.html' class='albumcover'>
             "
 
 contentElementTemplate="<img src='PATH' alt='PATH'></img>
+
+"
+
+textElementTemplate="<div class='smalltext'>TEXT</div>
 
 "
 
@@ -66,7 +70,15 @@ for folder in images/*; do
     newHtml=$albumTemplate
     
     content=""
-   
+
+    # If there is a text file in the folder, read its content, and add it to the html
+    if [ -f "$folder"/*.txt ]; then
+        text=$(cat "$folder"/*.txt)
+        textElement=$(echo "$textElementTemplate" | sed "s/TEXT/$text/g")
+        content="$content$textElement"
+    fi
+
+
     # For each photo in the folder, add it to the html
     for image in "$folder"/*; do
         newTemplate=$(echo "$contentElementTemplate" | sed "s@PATH@$image@g")

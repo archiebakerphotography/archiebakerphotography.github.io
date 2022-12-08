@@ -70,6 +70,8 @@ for folder in images/*; do
         contentText=$(cat "$folder/content.txt")
         echo "pre textreplace"
         textElement=$(echo "$textElementTemplate" | sed "s@TEXT@$contentText@")
+        echo "post textreplace"
+
         echo $textElementTemplate
         
 

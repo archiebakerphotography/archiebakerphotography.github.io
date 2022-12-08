@@ -69,7 +69,7 @@ for folder in images/*; do
     if [ -f "$folder/content.txt" ]; then
         contentText=$(cat "$folder/content.txt")
         textElement=$(echo "$textElementTemplate" | sed "s@TEXT@$contentText@g")
-        echo $contentText
+        echo $textElementTemplate
         echo $textElement
         content="$content$textElement"
     fi

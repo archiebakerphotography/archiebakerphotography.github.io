@@ -74,13 +74,13 @@ for folder in images/*; do
     # If there is a text file in the folder, read its content, and add it to the html
     if [ -f "$folder"/content.txt ]; then
         contentText=$(cat "$folder"/content.txt)
-        textElement=$(echo "$textElementTemplate" | sed "s/TEXT/$contentText/g")
+        textElement=$(echo "$textElementTemplate" | sed "s@TEXT@$contentText@g")
         content="$content$textElement"
     fi
 
 
     # For each photo in the folder, add it to the html
-    for image in "$folder"/*; do
+    for image in "$folder"/*.jpg; do
         newTemplate=$(echo "$contentElementTemplate" | sed "s@PATH@$image@g")
         content="$content$newTemplate"
     done

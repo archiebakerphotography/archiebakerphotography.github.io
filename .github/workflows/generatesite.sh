@@ -67,12 +67,10 @@ for folder in images/*; do
 
     # If there is a text file in the folder, read its content, and add it to the html
     if [ -f "$folder/content.txt" ]; then
-        contentText=$(cat "$folder/content.txt")
-        echo "pre textreplace"
-        textElement=$(echo "$textElementTemplate" | sed "s@TEXT@$contentText@")
-        echo "post textreplace"
-
-        echo $textElementTemplate
+        contentText=$(cat "$folder/content.txt" | sed -z "s@\n@ @g")
+        # echo "pre textreplace"
+        textElement=$(echo "$textElementTemplate"  | sed "s@TEXT@$contentText@")
+        # echo "post textreplace"
         
 
         content="$content$textElement"

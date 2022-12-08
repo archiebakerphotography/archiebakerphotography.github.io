@@ -241,11 +241,13 @@ body {
 }
 
 .smalltext {
-  color: white;
-  font-size: 12px;
+  color: rgb(37, 37, 37);
+  font-size: 15px;
   text-decoration: none;
+  flex-shrink: 0.475;
+
   padding-left: 6px;
   padding-right: 6px;
-
+  
   text-align: center;
 }

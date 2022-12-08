@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # Script to generate html pages from the images in the image folder 
 # and the text files in the image folders
@@ -19,17 +19,11 @@ homeElementTemplate="<a href='NAME.html' class='albumcover'>
             </a>
             "
 
-contentElementTemplate="<img src='PATH' alt='PATH'></img>
+contentElementTemplate="<img src='PATH' alt='PATH'></img>"
 
-"
+textElementTemplate="<div class='smalltext'>TEXT</div>"
 
-textElementTemplate="<div class='smalltext'>TEXT</div>
-
-"
-
-navElementTemplate="<a href='NAME.html'>NAME</a>
-
-"
+navElementTemplate="<a href='NAME.html'>NAME</a>"
 
 finalHomeElement=""
 finalNavElement=""
@@ -72,9 +66,11 @@ for folder in images/*; do
     content=""
 
     # If there is a text file in the folder, read its content, and add it to the html
-    if [ -f "$folder"/content.txt ]; then
-        contentText=$(cat "$folder"/content.txt)
+    if [ -f "$folder/content.txt" ]; then
+        contentText=$(cat "$folder/content.txt")
         textElement=$(echo "$textElementTemplate" | sed "s@TEXT@$contentText@g")
+        echo $contentText
+        echo $textElement
         content="$content$textElement"
     fi
 
